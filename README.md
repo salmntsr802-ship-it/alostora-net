@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شبكة الاسطورة نت اللاسلكية</title>
-
 <style>
 :root {
     --primary-color: #003366;
@@ -25,108 +24,52 @@ body {
     transition:0.5s;
 }
 body.light-mode { background:#F8F9FA; color: var(--day-text); }
-
-@keyframes gradientBG {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+@keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 /* بطاقة تسجيل الدخول */
 .login-card { perspective: 1000px; width:350px; }
-.card-inner {
-    width:100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor:pointer;
-}
+.card-inner { width:100%; transition: transform 0.8s; transform-style: preserve-3d; cursor:pointer; }
 .card-inner:hover { transform: rotateY(10deg) rotateX(5deg); }
 .card-inner.flip { transform: rotateY(180deg); }
-
 .card-front, .card-back {
-    background: var(--card-bg);
-    border-radius:15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    color: var(--text-color);
-    padding:30px;
-    text-align:center;
-    position:relative;
-    backface-visibility: hidden;
-    transition: all 0.5s ease;
+    background: var(--card-bg); border-radius:15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: var(--text-color); padding:30px; text-align:center; position:relative; backface-visibility: hidden; transition: all 0.5s ease;
 }
 body.light-mode .card-front, body.light-mode .card-back { background:#E9ECEF; color: var(--day-text); }
 .card-back { transform: rotateY(180deg); }
 
 /* العنوان */
 .network-name { font-size:1.8rem; font-weight:bold; margin-bottom:15px; }
-
 /* الساعة */
 .datetime { font-size:1rem; margin-bottom:5px; color:#FFD700; }
-
 /* الحقول */
 .form-box { display:flex; flex-direction:column; gap:15px; }
-.form-box input, .form-box select, .form-box button {
-    padding:10px; border-radius:10px; border:none; width:100%; font-size:1rem;
-}
-.form-box button {
-    background: var(--hover-color); color:white; cursor:pointer; transition:0.3s;
-}
+.form-box input, .form-box select, .form-box button { padding:10px; border-radius:10px; border:none; width:100%; font-size:1rem; }
+.form-box button { background: var(--hover-color); color:white; cursor:pointer; transition:0.3s; }
 .form-box button:hover { background:#00BFFF; }
 
 /* تذكرني ثلاثي الأبعاد */
-.remember-box {
-    display:flex; justify-content:center; align-items:center; gap:10px; cursor:pointer;
-}
+.remember-box { display:flex; justify-content:center; align-items:center; gap:10px; cursor:pointer; }
 .remember-box input[type="checkbox"] {
-    width:20px; height:20px;
-    appearance:none; -webkit-appearance:none;
-    border:2px solid var(--text-color);
-    border-radius:5px;
-    background:#000;
-    transition:0.3s;
+    width:20px; height:20px; appearance:none; -webkit-appearance:none;
+    border:2px solid var(--text-color); border-radius:5px; background:#000; transition:0.3s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-.remember-box input[type="checkbox"]:checked {
-    background: var(--hover-color);
-    transform: scale(1.2);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-}
+.remember-box input[type="checkbox"]:checked { background: var(--hover-color); transform: scale(1.2); box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
 
 /* شريط الأخبار */
-.slider {
-    width:100%; overflow:hidden; height:40px; background:var(--primary-color);
-    border-radius:10px; display:flex; align-items:center; justify-content:flex-start;
-    margin-bottom:20px;
-}
-.slider span {
-    display:inline-block; padding-left:100%; white-space:nowrap;
-    animation: marquee 12s linear infinite; color:#fff; font-weight:bold;
-}
+.slider { width:100%; overflow:hidden; height:40px; background:var(--primary-color); border-radius:10px; display:flex; align-items:center; justify-content:flex-start; margin-bottom:20px; }
+.slider span { display:inline-block; padding-left:100%; white-space:nowrap; animation: marquee 12s linear infinite; color:#fff; font-weight:bold; }
 @keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-100%);} }
 
 /* القوائم داخل البطاقة */
 .card-menu { display:flex; justify-content:space-around; margin-top:20px; }
-.card-menu div {
-    width:80px; height:80px; background: var(--primary-color); border-radius:15px;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    cursor:pointer; transition:0.3s; color:#fff; font-weight:bold;
-}
+.card-menu div { width:80px; height:80px; background: var(--primary-color); border-radius:15px; display:flex; flex-direction:column; justify-content:center; align-items:center; cursor:pointer; transition:0.3s; color:#fff; font-weight:bold; }
 .card-menu div:hover { background: var(--hover-color); }
 
 /* محتوى الصفحات داخل البطاقة */
-.card-page { 
-    display:none; 
-    margin-top:15px; 
-    text-align:center;
-    opacity:0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-}
-.card-page.active { 
-    display:block;
-    opacity:1;
-    transform: translateY(0);
-}
+.card-page { display:none; margin-top:15px; text-align:center; opacity:0; transform: translateY(20px); transition: all 0.4s ease; }
+.card-page.active { display:block; opacity:1; transform: translateY(0); }
 .card-page h3 { margin-bottom:10px; }
 .card-page table { width:100%; border-collapse:collapse; color:#fff; margin-bottom:10px; }
 .card-page th, .card-page td { border:1px solid #0055CC; padding:8px; text-align:center; }
@@ -135,17 +78,7 @@ body.light-mode .card-page th { background: #007BFF; color:#fff; }
 body.light-mode .card-page td { background:#E9ECEF; color:#1A1A1A; }
 
 /* زر الرجوع */
-.card-page button {
-    margin-top:10px;
-    padding:8px 20px;
-    border:none;
-    border-radius:10px;
-    background: var(--primary-color);
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
+.card-page button { margin-top:10px; padding:8px 20px; border:none; border-radius:10px; background: var(--primary-color); color:#fff; font-weight:bold; cursor:pointer; transition:0.3s; }
 .card-page button:hover { background: var(--hover-color); }
 
 /* الوضع الليلي */
@@ -153,18 +86,12 @@ body.light-mode .card-page td { background:#E9ECEF; color:#1A1A1A; }
 .dark-mode-toggle:hover { background:var(--hover-color); }
 
 /* استجابة الشاشة */
-@media(max-width:400px){
-    .login-card{width:90%}
-    .card-menu div{width:60px;height:60px;font-size:0.9rem;}
-}
+@media(max-width:400px){ .login-card{width:90%} .card-menu div{width:60px;height:60px;font-size:0.9rem;} }
 </style>
 </head>
-
 <body>
-
 <div class="login-card">
     <div class="card-inner" id="cardInner">
-        <!-- الواجهة الأمامية -->
         <div class="card-front">
             <div class="network-name">شبكة الاسطورة نت اللاسلكية</div>
             <div class="slider"><span id="marqueeText"></span></div>
@@ -186,24 +113,21 @@ body.light-mode .card-page td { background:#E9ECEF; color:#1A1A1A; }
                 <button onclick="login()">تسجيل الدخول</button>
             </div>
 
-            <!-- القوائم داخل البطاقة -->
             <div class="card-menu">
-                <div onclick="flipCard('storesPage')">🌐<br> </div>
-                <div onclick="flipCard('pricesPage')">💲<br></div>
-                <div onclick="flipCard('contactPage')">📞<br> </div>
+                <div onclick="flipCard('storesPage')">🌐<br>نقاط البيع</div>
+                <div onclick="flipCard('pricesPage')">💲<br>الأسعار</div>
+                <div onclick="flipCard('contactPage')">📞<br>اتصل بنا</div>
             </div>
 
             <button class="dark-mode-toggle" id="darkModeBtn" onclick="toggleDarkMode()">☀️</button>
         </div>
 
-        <!-- الواجهة الخلفية -->
         <div class="card-back">
             <div id="storesPage" class="card-page">
                 <h3>نقاط البيع</h3>
-                <p id="storesList">○ جميع البقالات  المجاورة للشبكة</p>
+                <p id="storesList">○ جميع البقالات المجاورة للشبكة</p>
                 <button onclick="unflipCard()">رجوع</button>
             </div>
-
             <div id="pricesPage" class="card-page">
                 <h3>قائمة الأسعار</h3>
                 <table id="pricesTable">
@@ -211,7 +135,6 @@ body.light-mode .card-page td { background:#E9ECEF; color:#1A1A1A; }
                 </table>
                 <button onclick="unflipCard()">رجوع</button>
             </div>
-
             <div id="contactPage" class="card-page">
                 <h3>اتصل بنا</h3>
                 <p id="contactInfo"></p>
@@ -230,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
     let newsIndex = 0;
 
-    // بيانات الأسعار
     const priceData = [
         {card:300, time:10, download:1200},
         {card:400, time:20, download:1600},
@@ -239,24 +161,13 @@ document.addEventListener("DOMContentLoaded", function() {
         {card:800, time:40, download:3600},
     ];
 
-    // بيانات نقاط البيع
-    const storesData = [
-        "جميع البقالات المجاوره للشبكه",
-        "",
-        ""
-    ];
-
-    // بيانات الاتصال
-    const contactData = {
-        management: "783621436",
-        support: "783621436"
-    };
+    const storesData = ["جميع البقالات المجاورة للشبكة"];
+    const contactData = { management: "783621436", support: "783621436" };
 
     function updatePage(){
-        // التاريخ والوقت
         const dt = new Date();
         const days = ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
-        const months = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر"];
+        const months = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
         const day = days[dt.getDay()];
         const date = dt.getDate().toString().padStart(2,'0');
         const month = months[dt.getMonth()];
@@ -266,11 +177,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const s = dt.getSeconds().toString().padStart(2,'0');
         document.getElementById('datetime').textContent = `${day}, ${date} ${month} ${year} | ${h}:${m}:${s}`;
 
-        // تحديث الأخبار
         document.getElementById('marqueeText').textContent = newsMessages[newsIndex];
         newsIndex = (newsIndex+1)%newsMessages.length;
 
-        // تحديث جدول الأسعار
         const table = document.getElementById('pricesTable');
         table.innerHTML = '<tr><th>فئة الكرت</th><th>Time (Hours)</th><th>Download (MB)</th></tr>';
         priceData.forEach(p=>{
@@ -279,23 +188,18 @@ document.addEventListener("DOMContentLoaded", function() {
             table.appendChild(tr);
         });
 
-        // تحديث نقاط البيع
         document.getElementById('storesList').innerHTML = storesData.map(s=>'○ '+s).join('<br>');
-
-        // تحديث الاتصال
         document.getElementById('contactInfo').innerHTML = `الإدارة: ${contactData.management}<br>الدعم الفني: ${contactData.support}`;
     }
 
     updatePage();
     setInterval(updatePage,1000);
 
-    // **تعديل رئيسي:** عرض الواجهة الخلفية مباشرة عند تحميل الصفحة
     document.getElementById('cardInner').classList.add('flip');
     document.querySelectorAll('.card-page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('storesPage').classList.add('active'); // تظهر صفحة نقاط البيع أولاً
+    document.getElementById('storesPage').classList.add('active');
 });
 
-// تسجيل الدخول
 function setCookie(name,value,days){ 
     const d = new Date(); 
     d.setTime(d.getTime()+(days*24*60*60*1000)); 
@@ -326,17 +230,13 @@ function login(){
     alert(`تم تسجيل الدخول برمز: ${username}\nالسرعة المختارة: ${speed}\nتذكرني: ${remember}`);
 }
 
-// دوران البطاقة وعرض الصفحة
 function flipCard(id){
     document.getElementById('cardInner').classList.add('flip');
     document.querySelectorAll('.card-page').forEach(p=>p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
-function unflipCard(){
-    document.getElementById('cardInner').classList.remove('flip');
-}
+function unflipCard(){ document.getElementById('cardInner').classList.remove('flip'); }
 
-// الوضع الليلي
 function toggleDarkMode(){
     document.body.classList.toggle('light-mode');
     localStorage.setItem('darkMode',document.body.classList.contains('light-mode'));
